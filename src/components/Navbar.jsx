@@ -3,7 +3,7 @@ import { BsSearch } from "react-icons/bs";
 
 function Navbar () {
     return (
-        <div className="text-white py-5 flex items-center justify-between">
+        <div className="text-white py-4 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex items-center justify-between bg-zinc-800">
             <h2 className="bg-yellow-500 text-2xl hover:bg-yellow-600 text-black font-bold px-2 py-1 rounded">
                 <Link to={"/"}>MOVIES 4EVER</Link>
             </h2>

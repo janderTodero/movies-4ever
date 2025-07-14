@@ -12,3 +12,8 @@ export const getNowPlaying = async () => {
   const data = await res.json()
   return data.results
 }
+
+export const getMovieDetails = async (id) => {
+  const res = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=pt-BR`)
+  return res.json()
+}
