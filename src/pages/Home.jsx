@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getNowPlaying } from "../services/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -15,7 +16,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="py-4 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 ">
+    <div className="py-4 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48">
 
       <h2 className="text-2xl font-bold mb-4 text-white">Filmes em Cartaz</h2>
 

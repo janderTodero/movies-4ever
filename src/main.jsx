@@ -5,6 +5,7 @@ import './index.css'
 import TopMovies from './pages/TopMovies'
 import App from './App'
 import MovieDetails from './pages/MovieDetails'
+import SearchResults from './pages/SearchResults'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -12,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route element={<App />}>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
-        <Route path="/topmovies" element={<TopMovies />} />
+        <Route path="/search" element={<SearchResults />} />
       </Route>
     </Routes>
   </BrowserRouter>

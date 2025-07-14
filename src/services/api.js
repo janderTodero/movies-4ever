@@ -16,4 +16,11 @@ export const getNowPlaying = async () => {
 export const getMovieDetails = async (id) => {
   const res = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=pt-BR`)
   return res.json()
+  
+}
+
+export const searchMovies = async (query) => {
+  const res = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=pt-BR&query=${encodeURIComponent(query)}&page=1&include_adult=false`)
+  const data = await res.json()
+  return data.results
 }
