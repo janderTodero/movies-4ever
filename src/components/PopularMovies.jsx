@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { getPopularMovies } from "../services/api";
 
 function PopularMovies() {
   const [movies, setMovies] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     getPopularMovies().then(setMovies);
@@ -41,9 +40,9 @@ function PopularMovies() {
 
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition duration-300 z-10"></div>
 
-              <div className="absolute inset-0 flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 flex p-4 z-20">
-                <p className="text-sm mb-2 text-white">{movie.overview}</p>
-                <p className="text-yellow-300"><strong>Nota média:</strong> ⭐ {movie.vote_average.toFixed(1)} / 10</p>
+              <div className="absolute inset-0 flex-col justify-center text-left opacity-0 translate-y-20 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex p-4 z-20">
+                <p className="text-sm mb-2 text-yellow-400">{movie.overview}</p>
+                <p className="text-white"><strong>Nota média:</strong> ⭐ {movie.vote_average.toFixed(1)} / 10</p>
               </div>
 
               <h2 className="text-sm font-bold text-center mt-2 px-2 z-30 mb-3">

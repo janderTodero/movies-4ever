@@ -1,27 +1,31 @@
 import { useEffect, useState } from "react";
-import { Link} from "react-router-dom";
-import { getNowPlaying } from "../services/api";
+import { Link } from "react-router-dom";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { getUpcoming } from "../services/api";
 
+function UpcomingMovies() {
+  const [movies, setMovies] = useState([]);
 
-function NowPlaying() {
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        getNowPlaying().then(setMovies);
-    }, []);
-
+  useEffect(() => {
+  getUpcoming().then((data) => {
+    const today = new Date();
+    const filtered = data.filter((movie) => {
+      const releaseDate = new Date(movie.release_date);
+      return releaseDate >= today;
+    });
+    setMovies(filtered);
+  });
+}, []);
   return (
-    
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-yellow-500">Filmes em Cartaz</h2>
+      <h2 className="text-2xl font-bold mb-4 mt-4 text-yellow-500">Em breve</h2>
 
       <Swiper
         modules={[Navigation, Autoplay]}
         spaceBetween={5}
         navigation
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         loop={true}
         breakpoints={{
           320: { slidesPerView: 1 },
@@ -44,9 +48,8 @@ function NowPlaying() {
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition duration-300 z-10"></div>
 
               <div className="absolute inset-0 flex-col justify-center text-left opacity-0 translate-y-20 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex p-4 z-20">
-
                 <p className="text-sm mb-2 text-yellow-400">{movie.overview}</p>
-                <p className="text-white"><strong>Nota média:</strong> ⭐ {movie.vote_average.toFixed(1)} / 10</p>
+                <p className="text-white"><strong>Lançamento: </strong>{new Date(movie.release_date).toLocaleDateString("pt-BR")}</p>
               </div>
 
               <h2 className="text-sm font-bold text-center mt-2 px-2 z-30 mb-3">
@@ -61,4 +64,4 @@ function NowPlaying() {
   );
 }
 
-export default NowPlaying
+export default UpcomingMovies;

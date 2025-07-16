@@ -25,3 +25,14 @@ export const searchMovies = async (query) => {
   return data.results
 }
 
+export const getUpcoming = async () => {
+  const res = await fetch(`${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=pt-BR&page=1`)
+  const data = await res.json()
+  return data.results
+}
+
+export const topRatedMovies = async () => {
+  const res = await fetch(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=pt-BR&page=1`)
+  const data = await res.json()
+  return data.results
+}
