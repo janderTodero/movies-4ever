@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { searchMovies } from "../services/api";
 
 function SearchResults() {
   const [params] = useSearchParams();
   const query = params.get("q");
   const [results, setResults] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (query) {
@@ -15,7 +14,7 @@ function SearchResults() {
   }, [query]);
 
   return (
-    <div className="text-white py-4 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48">
+    <div className="text-white py-6 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48">
       <h2 className="text-2xl font-bold mb-4">
         Resultados para: <span className="text-blue-400">{query}</span>
       </h2>
@@ -27,29 +26,41 @@ function SearchResults() {
           {results.map((movie) => (
             <div
               key={movie.id}
-              className="bg-gray-800 p-2 rounded shadow text-white flex flex-col h-full"
+              className="bg-gray-900 rounded overflow-hidden shadow text-white flex flex-col h-full"
             >
-              {movie.poster_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt={movie.title}
-                  className="rounded mb-2"
-                />
-              ) : (
-                <div className="h-[450px] bg-gray-600 flex items-center justify-center text-sm text-gray-200 mb-2">
-                  Sem imagem
-                </div>
-              )}
+              <Link to={`/movie/${movie.id}`}>
+                <div className="group relative bg-gray-900 rounded text-white overflow-hidden cursor-pointer">
+                  {movie.poster_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                      alt={movie.title}
+                      className="w-full aspect-[2/3] object-cover"
+                    />
+                  ) : (
+                    <div className="w-full aspect-[2/3] bg-gray-700 flex items-center justify-center text-sm text-gray-400">
+                      Sem imagem
+                    </div>
+                  )}
 
-              <div className="flex flex-col justify-between flex-grow text-center">
-                <h2 className="text-sm font-bold mb-2 line-clamp-2">{movie.title}</h2>
-                <button
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-2 py-1 rounded-2xl mt-auto cursor-pointer"
-                  onClick={() => navigate(`/movie/${movie.id}`)}
-                >
-                  Detalhes
-                </button>
-              </div>
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition duration-300 z-10"></div>
+
+                  <div className="absolute inset-0 flex flex-col justify-center text-left opacity-0 translate-y-20 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 p-4 z-20">
+                    <p className="text-xs mb-2 text-yellow-400 line-clamp-4">
+                      {movie.overview || "Sem descrição disponível."}
+                    </p>
+                    <p className="text-sm">
+                      <strong>Nota média:</strong> ⭐{" "}
+                      {movie.vote_average.toFixed(1)} / 10
+                    </p>
+                  </div>
+
+                  <div className="bg-gray-800 px-2 py-2 text-center">
+                    <h2 className="text-sm font-bold truncate">
+                      {movie.title}
+                    </h2>
+                  </div>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

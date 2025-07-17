@@ -36,3 +36,21 @@ export const topRatedMovies = async () => {
   const data = await res.json()
   return data.results
 }
+
+export const getPopularSeries = async () => {
+  const res = await fetch(`${BASE_URL}/tv/popular?api_key=${API_KEY}&language=pt-BR&page=1`)
+  const data = await res.json()
+  return data.results
+}
+
+export const getTvDetails = async (id) => {
+  const res = await fetch(`${BASE_URL}/tv/${id}?api_key=${API_KEY}&language=pt-BR`)
+  const data = await res.json()
+  return data
+}
+
+export const getTopRatedTv = async () => {
+  const res = await fetch(`${BASE_URL}/tv/top_rated?api_key=${API_KEY}&language=pt-BR&page=1`)
+  const data = await res.json()
+  return data.results
+}
