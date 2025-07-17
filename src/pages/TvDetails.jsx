@@ -1,3 +1,4 @@
+// pages/TvDetails.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getTvDetails } from "../services/api";
@@ -25,12 +26,12 @@ function TvDetails() {
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent rounded-lg"></div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-start gap-8">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
         {tv.poster_path && (
           <img
             src={`https://image.tmdb.org/t/p/w300${tv.poster_path}`}
             alt={tv.name}
-            className="w-64 rounded-lg shadow-md"
+            className="w-64 rounded-lg shadow-md mx-auto md:mx-0"
           />
         )}
 
