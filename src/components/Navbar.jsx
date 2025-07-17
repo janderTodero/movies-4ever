@@ -3,8 +3,8 @@ import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 
 function Navbar() {
-    const [search, setSearch] = useState("")
-    const navigate = useNavigate()
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,15 +12,21 @@ function Navbar() {
       navigate(`/search?q=${encodeURIComponent(search)}`);
     }
   };
+
   return (
-    <div className="text-white py-4 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex items-center justify-between bg-zinc-800">
-      <h2 className="bg-yellow-500 text-2xl hover:bg-yellow-600 text-black font-bold px-2 py-1 rounded">
-        <Link to={"/"}>MOVIES 4EVER</Link>
+    <div className="text-white py-4 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 bg-zinc-800">
+      {/* Logo */}
+      <h2 className="bg-yellow-500 text-2xl sm:text-2xl hover:bg-yellow-600 text-black font-bold px-2 py-1 sm:px-2 sm:py-1 px-1.5 py-0.5 rounded text-center">
+        <Link to={"/"} className="block sm:inline text-base sm:text-2xl">
+          MOVIES 4EVER
+        </Link>
       </h2>
-      <form onSubmit={handleSubmit}>
+
+      {/* Formulário */}
+      <form onSubmit={handleSubmit} className="w-full sm:w-auto flex justify-center sm:justify-end">
         <div className="flex items-center">
           <input
-            className="px-2 py-1 w-96 border-2 border-white bg-white text-black text-sm"
+            className="px-2 py-1 w-64 sm:w-96 border-2 border-white bg-white text-black text-sm"
             type="text"
             placeholder="Procure por um filme ou série"
             value={search}
