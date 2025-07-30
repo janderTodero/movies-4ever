@@ -2,7 +2,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import NowPlaying from "../components/NowPlaying";
 import PopularMovies from "../components/PopularMovies";
-import UpcomingMovies from "../components/UpcomingMovies";
 import TopRatedMovies from "../components/TopRatedMovies";
 import PopularTV from "../components/PopularTV";
 import TopRatedTV from "../components/TopRatedTv";
