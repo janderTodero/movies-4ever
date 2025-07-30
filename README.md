@@ -1,12 +1,45 @@
-# React + Vite
+# 🎬 Movies4Ever
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Movies4Ever** é uma aplicação web desenvolvida com **React** e **Vite** que permite aos usuários buscar **filmes e séries** em tempo real utilizando a API do TMDb.
 
-Currently, two official plugins are available:
+🔗 Acesse online: [https://movies4ever.vercel.app](https://movies4ever.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Tecnologias utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TMDb API](https://www.themoviedb.org/documentation/api)
+- `fetch` para requisições HTTP
+- [Vercel](https://vercel.com/) para deploy
+
+---
+
+## 🚀 Funcionalidades
+
+- 🔎 Buscar filmes e séries pelo nome
+- 🖼️ Visualizar pôster, título data de lançamento e nota
+- 💡 Interface limpa e responsiva
+- 🌐 Deploy online com Vercel
+
+---
+
+## 📦 Instalação e uso local
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/janderTodero/movies-4ever.git
+
+# 2. Acesse a pasta do projeto
+cd movies-4ever
+
+# 3. Instale as dependências
+npm install
+
+# 4. Crie um arquivo .env na raiz do projeto e adicione sua chave da API do TMDb
+VITE_TMDB_API_KEY=SUA_CHAVE_AQUI
+
+# 5. Rode o projeto localmente
+npm run dev
