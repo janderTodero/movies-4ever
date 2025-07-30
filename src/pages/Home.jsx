@@ -15,7 +15,6 @@ function Home() {
       <NowPlaying />
       <PopularMovies />
       <TopRatedMovies />
-      <UpcomingMovies />
       <PopularTV />
       <TopRatedTV />
     </div>
