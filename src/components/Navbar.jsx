@@ -16,9 +16,9 @@ function Navbar() {
   return (
     <div className="text-white py-4 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 bg-zinc-800">
       {/* Logo */}
-      <h2 className="bg-yellow-500 text-2xl sm:text-2xl hover:bg-yellow-600 text-black font-bold px-2 py-1 sm:px-2 sm:py-1 px-1.5 py-0.5 rounded text-center">
+      <h2 id="logo" className="bg-yellow-500 text-2xl sm:text-2xl hover:bg-yellow-600 text-black font-bold px-2 py-1 sm:px-2 sm:py-1 px-1.5 py-0.5 rounded text-center">
         <Link to={"/"} className="block sm:inline text-base sm:text-2xl">
-          MOVIES 4EVER
+          Movies 4ever
         </Link>
       </h2>
 
